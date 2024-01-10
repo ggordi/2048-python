@@ -125,13 +125,17 @@ def after_move(before_matrix):
         score_to_add = 0  # reset this after every successful move
         update_style()
     # otherwise, do nothing. proceed to checking if the user lost the game
-    copy_mat = copy.deepcopy(cell_values)
-    compress_left(copy_mat)
-    copy_mat = compress_right(copy_mat)
-    copy_mat = compress_up(copy_mat)
-    copy_mat = compress_down(copy_mat)
-    if copy_mat == cell_values:
-        game_over()
+    copy_1 = copy.deepcopy(cell_values)
+    copy_2 = copy.deepcopy(cell_values)
+    copy_2 = compress_down(copy_2)
+    if copy_1 == copy_2:
+        copy_2 = compress_up(copy_2)
+        if copy_1 == copy_2:
+            copy_2 = compress_right(copy_2)
+            if copy_1 == copy_2:
+                compress_left(copy_2)
+                if copy_1 == copy_2:
+                    game_over()
 
 
 # this function will be called when the user wins the game, and will show a game won screen
@@ -181,7 +185,7 @@ window = tk.Tk()
 window.title('2048')
 
 # set up the main frame, the holder for all the game contents
-main_frame = tk.Frame(window, width=400, height=550, bg='white')
+main_frame = tk.Frame(window, width=450, height=600, bg='white')
 main_frame.pack_propagate(False)
 main_frame.pack()
 # set up the labels
