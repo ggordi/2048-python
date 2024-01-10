@@ -140,7 +140,7 @@ def after_move(before_matrix):
 
 # this function will be called when the user wins the game, and will show a game won screen
 def game_won():
-    won_frame = tk.Frame(window, width=200, height=150, bg='#add2ff')
+    won_frame = tk.Frame(window, width=200, height=150, bg='#b1ffad')
     won_frame.pack_propagate(False)
     won_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
     won_label = tk.Label(won_frame, text='You Won!', font=win_font, bg='white')
@@ -149,7 +149,7 @@ def game_won():
 
 # this function will be called when the user loses the game, and will show a game lost screen
 def game_over():
-    lost_frame = tk.Frame(window, width=200, height=150, bg='#ffadad')
+    lost_frame = tk.Frame(window, width=200, height=150, bg='#b0d2ff')
     lost_frame.pack_propagate(False)
     lost_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
     lost_label = tk.Label(lost_frame, text='You lost!', font=win_font, bg='white')
